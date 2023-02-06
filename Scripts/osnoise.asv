@@ -1,0 +1,40 @@
+%Base
+[total_noise_per_instance_BASE,cpu_available_per_istance_BASE,max_noise_per_instance_BASE,hw_counter_BASE, ...
+    nmi_counter_BASE,irq_counter_BASE,softIRQ_counter_BASE,thds_counter_BASE]=osnoise_parser(osnoisecfgbase,50);
+%LL
+[total_noise_per_instance_LL,cpu_available_per_istance_LL,max_noise_per_instance_LL,hw_counter_LL, ...
+    nmi_counter_LL,irq_counter_LL,softIRQ_counter_LL,thds_counter_LL]=osnoise_parser(osnoiselowlat,1);
+
+%Preempt
+[total_noise_per_instance_Preempt,cpu_available_per_istance_Preempt,max_noise_per_instance_Preempt,hw_counter_Preempt, ...
+    nmi_counter_Preempt,irq_counter_Preempt,softIRQ_counter_Preempt,thds_counter_Preempt]=osnoise_parser(osnoisepreempt,1);
+
+names=["As Is","LowLat","LowLatPreempt"];
+x=[1,2,3];
+
+% Min CPUS
+mins_CPU=[min(cpu_available_per_istance_BASE),min(cpu_available_per_istance_LL),min(cpu_available_per_istance_Preempt)];
+figure(1);
+hold on;
+bar(1,mins_CPU(1),0.4,"grouped","yellow");
+%legend("As Is");
+bar(2,mins_CPU(2),0.4,"grouped","red");
+%legend("LowLat");
+bar(3,mins_CPU(3),0.4,"grouped","green");
+legend("As Is","LowLat","PreemptLowLat");
+hold off;
+
+% Max Noise
+
+total_noise=[max(total_noise_per_instance_BASE),max(total_noise_per_instance_LL),max(total_noise_per_instance_Preempt)];
+figure(2);
+hold on;
+bar(1,total_noise(1),0.4,"grouped","yellow");
+%legend("As Is");
+bar(2,total_noise(2),0.4,"grouped","red");
+%legend("LowLat");
+bar(3,total_noise(3),0.4,"grouped","green");
+legend("As Is","LowLat","PreemptLowLat");
+hold off;
+
+%NMI
