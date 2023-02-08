@@ -1,5 +1,0 @@
-[total_noise_per_instance_BASE,cpu_available_per_istance_BASE,max_noise_per_instance_BASE,hw_counter_BASE, ...
-    nmi_counter_BASE,irq_counter_BASE,softIRQ_counter_BASE,thds_counter_BASE]=osnoise_parser(osnoisecfgbase);
-total_noise_per_instance_BASE=total_noise_per_instance_BASE(50:end);
-cpu_available_per_istance_BASE=cpu_available_per_istance_BASE(50:end);
-max_noise_per_instance_BASE=max_noise_per_instance_BASE(50:end)
