@@ -88,12 +88,13 @@ Preempt_perc100_lat=(period100_ns+Preempt_mx_lat_100)/period100_ns;
 Preempt_perc1000_lat=(period1000_ns+Preempt_mx_lat_1000)/period1000_ns;
 
 % Plotting delle figure
-
 figure(1);
 bar([100,1000],[[ ll_perc100_lat, ll_perc1000_lat]; ...
     [ Preempt_perc100_lat, Preempt_perc1000_lat]]);
 xlabel("Period  in Us");
+ylabel("Percentage of  latency");
 legend("Low Latency","PreemptRT");
+
 
 %Cache  
 figure(2);
@@ -101,13 +102,15 @@ bar([100,1000],[[ll_Cache_100(mx),...
     Preempt_Cache_100(mx)];[ll_Cache_1000(mx),...
     Preempt_Cache_1000(mx)]]);
 xlabel("Period  in Us");
+ylabel("Latency in Us");
 legend("Low Latency","PreemptRT");
 
-figure(3);
-bar([[ll_Cache_100(avg),...
+figure(3); 
+bar([100,1000],[[ll_Cache_100(avg),...
     Preempt_Cache_100(avg)];[ll_Cache_1000(avg),...
     Preempt_Cache_1000(avg)]]);
 xlabel("Period  in Us");
+ylabel("Latency in Us");
 legend("Low Latency","PreemptRT");
 
 %Vm  
@@ -116,13 +119,15 @@ bar([100,1000],[[ll_Vm_100(mx),...
     Preempt_Vm_100(mx)];[ll_Vm_1000(mx),...
     Preempt_Vm_1000(mx)]]);
 xlabel("Period  in Us");
+ylabel("Latency in Us");
 legend("Low Latency","PreemptRT");
 
 figure(5);
-bar([[ll_Vm_100(avg),...
+bar([100,1000],[[ll_Vm_100(avg),...
     Preempt_Vm_100(avg)];[ll_Vm_1000(avg),...
     Preempt_Vm_1000(avg)]]);
 xlabel("Period  in Us");
+ylabel("Latency in Us");
 legend("Low Latency","PreemptRT");
 
 %context  
@@ -131,13 +136,15 @@ bar([100,1000],[[ll_context_100(mx),...
     Preempt_context_100(mx)];[ll_context_1000(mx),...
     Preempt_context_1000(mx)]]);
 xlabel("Period  in Us");
+ylabel("Latency in Us");
 legend("Low Latency","PreemptRT");
 
 figure(7);
-bar([[ll_context_100(avg),...
+bar([100,1000],[[ll_context_100(avg),...
     Preempt_context_100(avg)];[ll_context_1000(avg),...
     Preempt_context_1000(avg)]]);
 xlabel("Period  in Us");
+ylabel("Latency in Us");
 legend("Low Latency","PreemptRT");
 
 %Load  
@@ -146,13 +153,15 @@ bar([100,1000],[[ll_Load_100(mx),...
     Preempt_Load_100(mx)];[ll_Load_1000(mx),...
     Preempt_Load_1000(mx)]]);
 xlabel("Period  in Us");
+ylabel("Latency in Us");
 legend("Low Latency","PreemptRT");
 
 figure(9);
-bar([[ll_Load_100(avg),...
+bar([100,1000],[[ll_Load_100(avg),...
     Preempt_Load_100(avg)];[ll_Load_1000(avg),...
     Preempt_Load_1000(avg)]]);
 xlabel("Period  in Us");
+ylabel("Latency in Us");
 legend("Low Latency","PreemptRT");
 
 %noStress  
@@ -163,12 +172,14 @@ bar([100,1000],[[ll_noStress_100(mx),...
     Preempt_noStress_100(mx)];[ll_noStress_1000(mx),...
     Preempt_noStress_1000(mx)]]);
 xlabel("Period  in Us");
+ylabel("Latency in Us");
 legend("Low Latency","PreemptRT");
 
 figure(11);
-bar([[ll_noStress_100(avg),...
+bar([100,1000],[[ll_noStress_100(avg),...
     Preempt_noStress_100(avg)];[ll_noStress_1000(avg),...
     Preempt_noStress_1000(avg)]]);
 xlabel("Period  in Us");
+ylabel("Latency in Us");
 legend("Low Latency","PreemptRT");
 
